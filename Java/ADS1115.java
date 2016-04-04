@@ -18,7 +18,7 @@ public class ADS1115
 		// Get I2C device, ADS1115 I2C address is 0x48(72)
 		I2CDevice device = bus.getDevice(0x48);
 		
-		byte[] config = {0x84, 0x83};
+		byte[] config = {(byte)0x84, (byte)0x83};
 		// Select configuration register
 		// AINP = AIN0 and AINN = AIN1, +/- 2.048V, Continuous conversion mode, 128 SPS
 		device.write(0x01, config, 0, 2);
