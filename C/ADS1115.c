@@ -22,7 +22,6 @@ void main()
 	}
 	// Get I2C device, ADS1115 I2C address is 0x48(72)
 	ioctl(file, I2C_SLAVE, 0x48);
-	
 
 	// Select configuration register(0x01)
 	// AINP = AIN0 and AINN = AIN1, +/- 2.048V, Continuous conversion mode, 128 SPS(0x84, 0x83)
