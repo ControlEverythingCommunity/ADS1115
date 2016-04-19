@@ -61,4 +61,17 @@ Verify and flash the code on your Photon. Code output is shown in logs at dashbo
  
 https://dashboard.particle.io/user/logs
 
+
+## C
+
+Download (or git pull) the code in Beaglebone Black.
+
+Compile the c program.
+```cpp
+$>gcc ADS1115.c -o ADS1115
+```
+Run the c program.
+```cpp
+$>./ADS1115
+```
 #####The code output is digital value of an analog input.
