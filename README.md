@@ -8,7 +8,7 @@ This Device is available from ControlEverything.com [SKU: ADS1115_I2CADC]
 
 https://www.controleverything.com/content/Analog-Digital-Converters?sku=ADS1115_I2CADC
 
-This Sample code can be used with Raspberry pi, Arduino and Particle.
+This Sample code can be used with Raspberry pi, Arduino, Particle and Beaglebone Black.
 
 ## Java
 Download and install pi4j library on Raspberry pi. Steps to install pi4j are provided at:
