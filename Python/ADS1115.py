@@ -11,9 +11,9 @@ import time
 bus = smbus.SMBus(1)
 
 # ADS1115 address, 0x48(72)
-# Select configuration register, 0x01(00)
+# Select configuration register, 0x01(01)
 #		0x8483(33923)	AINP = AIN0 and AINN = AIN1, +/- 2.048V
-#                       Continuous conversion mode, 128SPS
+#                 Continuous conversion mode, 128SPS
 data = [0x84,0x83]
 bus.write_i2c_block_data(0x48, 0x01, data)
 
