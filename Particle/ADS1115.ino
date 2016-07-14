@@ -10,7 +10,7 @@
 // ADS1115 I2C address is 0x48(72)
 #define Addr 0x48
 
-int raw_adc = 0
+int raw_adc = 0;
 void setup() 
 {
   // Set variable
@@ -61,6 +61,6 @@ void loop()
   float raw_adc = (data[0] * 256.0) + data[1];
 
   // Output data to dashboard
-  Particle.publish("Digital value of analog input :", String(raw_adc));
+  Particle.publish("Digital Value of Analog Input :", String(raw_adc));
   delay(500);
 }
