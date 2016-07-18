@@ -33,6 +33,6 @@ public class ADS1115
 		int raw_adc = ((data[0] & 0xFF) * 256) + (data[1] & 0xFF);
 		
 		// Output data to screen
-		System.out.printf("Digital value of analog input : %d %n", raw_adc);
+		System.out.printf("Digital Value of Analog Input : %d %n", raw_adc);
 	}
 }
