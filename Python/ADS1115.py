@@ -28,4 +28,4 @@ data = bus.read_i2c_block_data(0x48, 0x00, 2)
 raw_adc = data[0] * 256 + data[1]
 
 # Output data to screen
-print "Digital value of analog input : %d" %raw_adc
+print "Digital Value of Analog Input : %d" %raw_adc
