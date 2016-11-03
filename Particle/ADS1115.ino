@@ -11,12 +11,12 @@
 #define Addr 0x48
 
 int raw_adc = 0;
-void setup() 
+void setup()
 {
   // Set variable
   Particle.variable("i2cdevice", "ADS1115");
   Particle.variable("raw_adc", raw_adc);
-  
+
   // Initialise I2C communication as MASTER
   Wire.begin();
   // Initialise Serial Communication, set baud rate = 9600
@@ -35,7 +35,7 @@ void setup()
   delay(300);
 }
 
-void loop() 
+void loop()
 {
   unsigned int data[2];
 
@@ -51,14 +51,18 @@ void loop()
 
   // Read 2 bytes of data
   // raw_adc msb, raw_adc lsb
-  if(Wire.available() == 2)
+  if (Wire.available() == 2)
   {
-     data[0] = Wire.read();
-     data[1] = Wire.read();
+    data[0] = Wire.read();
+    data[1] = Wire.read();
   }
 
   // Convert the data
-  float raw_adc = (data[0] * 256.0) + data[1];
+  int raw_adc = (data[0] * 256.0) + data[1];
+  if (raw_adc > 32767)
+  {
+    raw_adc -= 65535;
+  }
 
   // Output data to dashboard
   Particle.publish("Digital Value of Analog Input :", String(raw_adc));
