@@ -31,7 +31,11 @@ public class ADS1115
 		
 		// Convert the data
 		int raw_adc = ((data[0] & 0xFF) * 256) + (data[1] & 0xFF);
-		
+		if (raw_adc > 32767)
+		{
+			raw_adc -= 65535;
+		}
+
 		// Output data to screen
 		System.out.printf("Digital Value of Analog Input : %d %n", raw_adc);
 	}
