@@ -25,8 +25,8 @@ void loop()
   Wire.beginTransmission(Addr);
   // Select configuration register
   Wire.write(0x01);
-  // AINP = AIN0 and AINN = AIN1, +/- 2.048V
-  Wire.write(0x84);
+  // AINP = AIN0 and AINN = GND, +/- 2.048V
+  Wire.write(0xC4);
   // Continuous conversion mode, 128 SPS
   Wire.write(0x83);
   // Stop I2C Transmission
@@ -59,7 +59,7 @@ void loop()
   }
 
   // Output data to serial monitor
-  Serial.print("Digital Value of Analog Input on AIN0 & AIN1: ");
+  Serial.print("Digital Value of Analog Input on Channel-0: ");
   Serial.println(raw_adc);
   delay(500);
 
@@ -67,8 +67,8 @@ void loop()
   Wire.beginTransmission(Addr);
   // Select configuration register
   Wire.write(0x01);
-  // AINP = AIN0 and AINN = AIN3, +/- 2.048V
-  Wire.write(0x94);
+  // AINP = AIN1 and AINN = GND, +/- 2.048V
+  Wire.write(0xD4);
   // Continuous conversion mode, 128 SPS
   Wire.write(0x83);
   // Stop I2C Transmission
@@ -101,7 +101,7 @@ void loop()
   }
 
   // Output data to serial monitor
-  Serial.print("Digital Value of Analog Input on AIN0 & AIN3: ");
+  Serial.print("Digital Value of Analog Input on Channel-1: ");
   Serial.println(raw_adc);
   delay(500);
 
@@ -109,8 +109,8 @@ void loop()
   Wire.beginTransmission(Addr);
   // Select configuration register
   Wire.write(0x01);
-  // AINP = AIN1 and AINN = AIN3, +/- 2.048V
-  Wire.write(0xA4);
+  // AINP = AIN2 and AINN = GND, +/- 2.048V
+  Wire.write(0xE4);
   // Continuous conversion mode, 128 SPS
   Wire.write(0x83);
   // Stop I2C Transmission
@@ -143,7 +143,7 @@ void loop()
   }
 
   // Output data to serial monitor
-  Serial.print("Digital Value of Analog Input on AIN1 & AIN3: ");
+  Serial.print("Digital Value of Analog Input on Channel-2: ");
   Serial.println(raw_adc);
   delay(500);
 
@@ -151,8 +151,8 @@ void loop()
   Wire.beginTransmission(Addr);
   // Select configuration register
   Wire.write(0x01);
-  // AINP = AIN2 and AINN = AIN3, +/- 2.048V
-  Wire.write(0xB4);
+  // AINP = AIN3 and AINN = GND, +/- 2.048V
+  Wire.write(0xF4);
   // Continuous conversion mode, 128 SPS
   Wire.write(0x83);
   // Stop I2C Transmission
@@ -185,8 +185,7 @@ void loop()
   }
 
   // Output data to serial monitor
-  Serial.print("Digital Value of Analog Input on AIN2 & AIN3: ");
+  Serial.print("Digital Value of Analog Input on Channel-3: ");
   Serial.println(raw_adc);
   delay(500);
 }
-
