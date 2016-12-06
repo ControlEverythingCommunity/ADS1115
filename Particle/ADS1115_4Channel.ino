@@ -31,8 +31,8 @@ void loop()
   Wire.beginTransmission(Addr);
   // Select configuration register
   Wire.write(0x01);
-  // AINP = AIN0 and AINN = AIN1, +/- 2.048V
-  Wire.write(0x84);
+  // AINP = AIN0 and AINN = GND, +/- 2.048V
+  Wire.write(0xC4);
   // Continuous conversion mode, 128 SPS
   Wire.write(0x83);
   // Stop I2C Transmission
@@ -64,16 +64,16 @@ void loop()
     raw_adc -= 65535;
   }
 
-  // Output data to dashboard
-  Particle.publish("Digital value on AIN0 & AIN1:", String(raw_adc));
+  // Output data to console
+  Particle.publish("Digital Value on Channel-0:", String(raw_adc));
   delay(1000);
 
   // Start I2C Transmission
   Wire.beginTransmission(Addr);
   // Select configuration register
   Wire.write(0x01);
-  // AINP = AIN0 and AINN = AIN3, +/- 2.048V
-  Wire.write(0x94);
+  // AINP = AIN1 and AINN = GND, +/- 2.048V
+  Wire.write(0xD4);
   // Continuous conversion mode, 128 SPS
   Wire.write(0x83);
   // Stop I2C Transmission
@@ -105,16 +105,16 @@ void loop()
     raw_adc -= 65535;
   }
 
-  // Output data to dashboard
-  Particle.publish("Digital value on AIN0 & AIN3:", String(raw_adc));
+  // Output data to console
+  Particle.publish("Digital Value on Channel-1:", String(raw_adc));
   delay(1000);
 
   // Start I2C Transmission
   Wire.beginTransmission(Addr);
   // Select configuration register
   Wire.write(0x01);
-  // AINP = AIN1 and AINN = AIN3, +/- 2.048V
-  Wire.write(0xA4);
+  // AINP = AIN2 and AINN = GND, +/- 2.048V
+  Wire.write(0xE4);
   // Continuous conversion mode, 128 SPS
   Wire.write(0x83);
   // Stop I2C Transmission
@@ -146,16 +146,16 @@ void loop()
     raw_adc -= 65535;
   }
 
-  // Output data to dashboard
-  Particle.publish("Digital value on AIN1 & AIN3:", String(raw_adc));
+  // Output data to console
+  Particle.publish("Digital Value on Channel-2:", String(raw_adc));
   delay(1000);
 
   // Start I2C Transmission
   Wire.beginTransmission(Addr);
   // Select configuration register
   Wire.write(0x01);
-  // AINP = AIN2 and AINN = AIN3, +/- 2.048V
-  Wire.write(0xB4);
+  // AINP = AIN3 and AINN = GND, +/- 2.048V
+  Wire.write(0xF4);
   // Continuous conversion mode, 128 SPS
   Wire.write(0x83);
   // Stop I2C Transmission
@@ -187,7 +187,7 @@ void loop()
     raw_adc -= 65535;
   }
 
-  // Output data to dashboard
-  Particle.publish("Digital value on AIN2 & AIN3:", String(raw_adc));
+  // Output data to console
+  Particle.publish("Digital Value on Channel-3:", String(raw_adc));
   delay(1000);
 }
