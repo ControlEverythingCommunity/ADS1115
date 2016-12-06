@@ -18,9 +18,9 @@ public class ADS1115_4Channel
 		// Get I2C device, ADS1115 I2C address is 0x48(72)
 		I2CDevice device = bus.getDevice(0x48);
 		
-		byte[] config = {(byte)0x84, (byte)0x83};
+		byte[] config = {(byte)0xC4, (byte)0x83};
 		// Select configuration register
-		// AINP = AIN0 and AINN = AIN1, +/- 2.048V, Continuous conversion mode, 128 SPS
+		// AINP = AIN0 and AINN = GND, +/- 2.048V, Continuous conversion mode, 128 SPS
 		device.write(0x01, config, 0, 2);
 		Thread.sleep(500);
 		
@@ -37,11 +37,11 @@ public class ADS1115_4Channel
 		}
 
 		// Output data to screen
-		System.out.printf("Digital Value of Analog Input on AIN0 & AIN1: %d %n", raw_adc);
+		System.out.printf("Digital Value of Analog Input on Channel-0: %d %n", raw_adc);
 
-		byte[] config1 = {(byte)0x94, (byte)0x83};
+		byte[] config1 = {(byte)0xD4, (byte)0x83};
 		// Select configuration register
-		// AINP = AIN0 and AINN = AIN3, +/- 2.048V, Continuous conversion mode, 128 SPS
+		// AINP = AIN1 and AINN = GND, +/- 2.048V, Continuous conversion mode, 128 SPS
 		device.write(0x01, config1, 0, 2);
 		Thread.sleep(500);
 		
@@ -58,11 +58,11 @@ public class ADS1115_4Channel
 		}
 
 		// Output data to screen
-		System.out.printf("Digital Value of Analog Input on AIN0 & AIN3: %d %n", raw_adc1);
+		System.out.printf("Digital Value of Analog Input on Channel-1: %d %n", raw_adc1);
 
-		byte[] config2 = {(byte)0xA4, (byte)0x83};
+		byte[] config2 = {(byte)0xE4, (byte)0x83};
 		// Select configuration register
-		// AINP = AIN1 and AINN = AIN3, +/- 2.048V, Continuous conversion mode, 128 SPS
+		// AINP = AIN2 and AINN = GND, +/- 2.048V, Continuous conversion mode, 128 SPS
 		device.write(0x01, config2, 0, 2);
 		Thread.sleep(500);
 		
@@ -79,11 +79,11 @@ public class ADS1115_4Channel
 		}
 
 		// Output data to screen
-		System.out.printf("Digital Value of Analog Input on AIN1 & AIN3: %d %n", raw_adc2);
+		System.out.printf("Digital Value of Analog Input on Channel-2: %d %n", raw_adc2);
 
-		byte[] config3 = {(byte)0xB4, (byte)0x83};
+		byte[] config3 = {(byte)0xF4, (byte)0x83};
 		// Select configuration register
-		// AINP = AIN2 and AINN = AIN3, +/- 2.048V, Continuous conversion mode, 128 SPS
+		// AINP = AIN3 and AINN = GND, +/- 2.048V, Continuous conversion mode, 128 SPS
 		device.write(0x01, config3, 0, 2);
 		Thread.sleep(500);
 		
@@ -100,6 +100,6 @@ public class ADS1115_4Channel
 		}
 
 		// Output data to screen
-		System.out.printf("Digital Value of Analog Input on AIN2 & AIN3: %d %n", raw_adc3);
+		System.out.printf("Digital Value of Analog Input on Channel-3: %d %n", raw_adc3);
 	}
 }
