@@ -66,7 +66,7 @@ static void writeRegister(uint8_t i2cAddress, uint8_t reg, uint16_t value)
 static uint16_t readRegister(uint8_t i2cAddress, uint8_t reg)
 {
   Wire.beginTransmission(i2cAddress);
-  i2cwrite(ADS1115_REG_POINTER_CONVERT);
+  i2cwrite((uint8_t)reg);
   Wire.endTransmission();
   Wire.requestFrom(i2cAddress, (uint8_t)2);
   return (int16_t)((i2cread() << 8) | i2cread());
