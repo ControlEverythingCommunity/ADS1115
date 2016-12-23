@@ -88,7 +88,8 @@ ADS1115::ADS1115(uint8_t i2cAddress)
         Sets up the Hardware
 */
 /**************************************************************************/
-void ADS1115::begin() {
+void ADS1115::begin()
+{
   Wire.begin();
 }
 
