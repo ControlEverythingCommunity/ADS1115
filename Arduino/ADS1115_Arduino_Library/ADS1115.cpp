@@ -46,7 +46,7 @@ static void i2cwrite(uint8_t x) {
 
 /**************************************************************************/
 /*
-        Reads 16-bits to the specified destination register
+        Writes 16-bits to the specified destination register
 */
 /**************************************************************************/
 static void writeRegister(uint8_t i2cAddress, uint8_t reg, uint16_t value)
@@ -60,7 +60,7 @@ static void writeRegister(uint8_t i2cAddress, uint8_t reg, uint16_t value)
 
 /**************************************************************************/
 /*
-        Writes 16-bits to the specified destination register
+        Reads 16-bits to the specified destination register
 */
 /**************************************************************************/
 static uint16_t readRegister(uint8_t i2cAddress, uint8_t reg)
